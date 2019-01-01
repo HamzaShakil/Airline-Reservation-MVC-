@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Airline_Reservation.Models.RegistrationModel>
+
+@{
+    ViewBag.Title = "Get Customer";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<h2>Detail Of Customers</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customerid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusLName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNICNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofDeparture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofArival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditCardType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditCardno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customerid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusFName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusLName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNICNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofDeparture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofArival)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditCardType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditCardno)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+}
+
+</table>

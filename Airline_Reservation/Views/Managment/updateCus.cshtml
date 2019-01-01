@@ -1,0 +1,158 @@
+﻿@model Airline_Reservation.Models.RegistrationModel
+
+@{
+    ViewBag.Title = "update Customer";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<h2>Update Customer</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Want To Change SomeThing?</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Customerid)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Customerid, new { @id = "CNICNO" })
+                @Html.ValidationMessageFor(model => model.Customerid)
+                <div class="button">
+                    <input type="submit" name="button" value="Search" class="btn btn-default" style ="margin-left: 27%; margin-top: -5.4%;" />
+                </div>
+            </div>
+        </div>
+      
+
+        @if (Model.CusFName != null) {
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CusFName)
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CusFName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CusFName)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CusLName)
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CusLName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CusLName)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Email)
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Gender)
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Gender, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Gender)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CNICNO)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CNICNO)
+            @Html.ValidationMessageFor(model => model.CNICNO)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.DateofDeparture)
+        <div class="editor-field">
+                @Html.TextBoxFor(model => model.DateofDeparture, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DateofDeparture)
+                    
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.DateofArival)
+        <div class="editor-field">
+                @Html.TextBoxFor(model => model.DateofArival, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DateofArival)
+                    
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.FromLocation)
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FromLocation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FromLocation)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ToLocation)
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ToLocation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ToLocation)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CreditCardType)
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CreditCardType, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CreditCardType)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CreditCardno)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreditCardno)
+            @Html.ValidationMessageFor(model => model.CreditCardno)
+        </div>
+    </div>
+        <div class="button-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="button" value="Update" class="btn btn-default" />
+            </div>
+        </div>
+        }
+    </div>
+}
+<style>
+    .editor-label {
+        margin-left: 6%;
+    }
+
+    .button-group {
+        margin-left: -14.5%;
+        margin-top: 1%;
+        margin-bottom: 8%;
+    }
+    #CreditCardno, #CNICNO, #Customerid {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #555555;
+        vertical-align: middle;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+</style>
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>

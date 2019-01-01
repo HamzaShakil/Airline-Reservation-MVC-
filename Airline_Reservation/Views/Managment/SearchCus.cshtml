@@ -1,0 +1,225 @@
+﻿@model Airline_Reservation.Models.RegistrationModel
+
+@{
+    ViewBag.Title = "SearchCus";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<h2>Add Customers</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <body onload="variableCheck()" onkeypress="getElements(event)" onclick="getElements(event)">
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Customerid)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Customerid, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Customerid)
+
+            </div>
+            <div class="button">
+                <input type="submit" name="button" value="Search" class="btn btn-default" style="margin-left: 27%; margin-top: -5.4%;" onclick="validationCheck()" />
+            </div>
+        </div>
+
+
+        <div class=" editor-label">
+            @Html.LabelFor(model => model.CusFName)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CusFName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CusFName)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CusLName)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CusLName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CusLName)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gender)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Gender, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Gender)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CNICNO)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CNICNO, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CNICNO)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateofDeparture)
+            <div class="editor-field">
+                @if (Model.DateofDeparture == null)
+                {
+                    <input type="date" name="date1" class="form-control" id="dep" />
+                    @Html.ValidationMessageFor(model => model.DateofDeparture)
+                }
+                @if (Model.DateofDeparture != null)
+                {
+                    @Html.TextBoxFor(model => model.DateofDeparture, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DateofDeparture)
+                }
+
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateofArival)
+            @if (Model.DateofArival == null)
+            {
+                <input type="date" name="date2" class="form-control" id="Arr">
+            }
+            @if (Model.DateofArival != null)
+            {
+                @Html.TextBoxFor(model => model.DateofArival, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DateofArival)
+            }
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FromLocation)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.FromLocation, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FromLocation)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ToLocation)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.ToLocation, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ToLocation)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreditCardType)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CreditCardType, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CreditCardType)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreditCardno)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CreditCardno, new { @Class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CreditCardno)
+                @if (TempData["notice"] != null)
+                {
+                    <h4 class="text-danger">@TempData["notice"]</h4>
+                }
+            </div>
+        </div>
+
+        <div class="editor-field">
+            <div class="button-group">
+
+                <input type="submit" name="button" value="Insert" class="btn btn-default" onclick="validationCheck2()" />
+                <input type="submit" name="button" value="Delete" class="btn btn-default" />
+                <input type="submit" id="myButton" name="button" value="Update" class="btn btn-default" onclick="getElements()" />
+                <input type="submit" name="button" value="Clear" class="btn btn-default" />
+            </div>
+        </div>
+
+    </body>
+}
+
+<style>
+    .editor-label {
+        margin-left: 6%;
+    }
+
+    .button-group {
+        margin-left: 5.9%;
+        margin-top: 1%;
+        margin-bottom: 8%;
+    }
+</style>
+<script type="text/javascript">
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("date1")[0].setAttribute('min', today);
+    document.getElementsByName("date2")[0].setAttribute('min', today);
+    function validationCheck() {
+        
+        $("#CusFName").rules("remove", "required");
+        $("#CusLName").rules("remove", "required");
+        $("#Email").rules("remove", "required");
+        $("#Gender").rules("remove","required");
+        $("#CNICNO").rules("remove", "required");
+        $("#ToLocation").rules("remove", "required");
+        $("#FromLocation").rules("remove","required");
+        $("#CreditCardType").rules("remove", "required");
+        $("#dep").rules("remove", "required");
+        $("#Arr").rules("remove", "required");
+       
+        //getElements();
+    }
+    function validationCheck2() {
+        //document.getElementById("myButton").disabled = true;
+        $("#dep").rules("add", "required");
+        $("#Arr").rules("add", "required");
+        var CNICNO = document.getElementById("CNICNO").value;
+        var CreditNO = document.getElementById("CreditCardno").value;
+        if (CNICNO =="0") {
+            alert("CNIC Field is Required");
+
+        }
+        else if (CreditNO== "0") {
+            alert("CreditCardNo Field IS Required");
+
+        }
+    }
+        function variableCheck() {
+            document.getElementById("myButton").disabled = true;
+        }
+        function getElements(event) {
+            var x = document.getElementsByClassName("form-control");
+
+            if (x[1].value == "" || x[2].value == "" || x[3].value == "" || x[4].value == "" || x[5].value == "" || x[6].value == ""
+                || x[7].value == "" || x[8].value == "" || x[9].value == "" || x[10].value == "" || x[11].value == "") {
+
+                document.getElementById("myButton").disabled = true
+                document.getElementById("myButton").value = "Update";
+            } else {
+                document.getElementById("myButton").disabled = false
+                document.getElementById("myButton").value = "Update";
+            }
+        }
+        function ValidationEvent() {
+            
+        }
+        
+
+    
+    </script>
+    <div>
+        @*@Html.ActionLink("Back to List", "Index")*@
+    </div>
+
+    @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    }

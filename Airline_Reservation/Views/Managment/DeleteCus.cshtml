@@ -1,0 +1,161 @@
+﻿@model Airline_Reservation.Models.RegistrationModel
+
+@{
+    ViewBag.Title = "Delete Customer";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<h2>Delete Customer</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Are you Sure You Want To Delete?</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Customerid)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Customerid, new { @id = "CNICNO" })
+                @Html.ValidationMessageFor(model => model.Customerid)
+                <div class="col-md-offset-2 col-md-9">
+                    <input type="submit" name="button" value="Search" class="btn btn-default" style="margin-left: 10%; margin-top: -6.5%;" />
+                </div>
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Customerid, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Customerid)
+                @Html.ValidationMessageFor(model => model.Customerid)
+            </div>
+        </div>*@
+        @if (Model.CusFName != null) { 
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customerid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CusFName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CusLName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CNICNO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateofDeparture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateofArival)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ToLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreditCardType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreditCardno)
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Customerid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.CusFName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.CusLName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.CNICNO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.DateofDeparture)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.DateofArival)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.FromLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.ToLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.CreditCardType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.CreditCardno)
+                </td>
+                <td>
+
+        </table>
+           
+
+            <div class="button-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" name="button" value="Delete" class="btn btn-default" />
+
+                </div>
+            </div>
+        }
+</div>
+}
+
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>
+<style>
+    .editor-field {
+        margin-left: 2%;
+    }
+    label {
+     
+        margin-left: 2%;
+    
+    }
+    .button-group {
+        margin-left: 85%;
+        margin-top: -2%;
+    }
+    #Customerid {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #555555;
+        vertical-align: middle;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+</style>

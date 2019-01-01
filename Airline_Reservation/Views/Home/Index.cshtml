@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<div class="top">
+    <img class="slider" src="~/Content/Images/singapore-at-night.jpg" alt="Places" />
+    <img class="slider" src="~/Content/Images/1.jpg" alt="Places" />
+    <img class="slider" src="~/Content/Images/3.jpg" alt="Places" />
+    <img class="slider" src="~/Content/Images/4.png" alt="Places" />
+    <img class="slider" src="~/Content/Images/5.jpg" alt="Places" />
+    <script>
+        var my = 0;
+        slide();
+
+        function slide() {
+            var a;
+            var b = document.getElementsByClassName("slider");
+            for (a = 0; a < b.length; a++) {
+                b[a].style.display = "none";
+            }
+            my++;
+            if (my > b.length) { my = 1 }
+            b[my - 1].style.display = "block";
+            setTimeout(slide, 3000); // Change image every 3 seconds
+        }
+    </script>
+
+</div>
+<h2 class="on-top">FLY WITH US AND MAKE YOUR JOURNY BEAUTIFULL</h2>
+<p class="top-p">What you're waitng for Apply now.</p>
+<div id="mid-section">
+    <h2 class="head-testi">Testimonials </h2>
+
+    <div class="Slide-testimonials">
+        <p class="mySlides"><i>I have found Ward Goodman to be very helpful and knowledgeable to us as a Charity both as advisors and Auditors.<br />
+            by: Linda Shae.</i></p>
+        <p class="mySlides"><i>In my capacity as Chair of the Wimborne Minster Chamber of Trade and Commerce, I needed to find a Treasurer and was delighted when Jen Richardson.<br />
+            by: Jacson shaw</i></p>
+        <p class="mySlides"><i>The Ward Goodman tax team are always most helpful and proactive. They have provided invaluable support to me in specialist areas of the tax legislation.<br/>
+                               by: SIMON SHERBROOKE</i></p>
+        <p class="mySlides"><i>We are hugely grateful to you for what you have done Paul and can’t begin to thank you enough for all your patience, wise council, good humour and support.<br />
+            by: james carnor</i></p>
+        <p class="mySlides"><i> Thank you #rodd_ian was dreading the business consultation but you made it painless and fun - got my brain switched on!<br/>
+            by: Shan Michal </i></p>
+            <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 2000); // Change image every 2 seconds
+            }
+            </script>
+    </div>
+
+
+
+    <div class="Contact-backimg">
+        <h2 class="head-testi">Contact Us.</h2>
+        <img class="c-back" src="~/Content/Images/cback2.jpg" />
+    </div>
+
+</div>
+<div class="form">
+    <input class="name-text" type="text" placeholder="Name" />
+    <input class="name-text" type="text" placeholder="Email" />
+    <input class="message-text" type="text" placeholder="Message" /> 
+    <input type="submit" value="Send > "/> 
+ </div>
+
+<div class="msg">
+    <h2 class="msg1">Contact Us for more details Related to Visa and Tickets</h2>
+    <p class="msg-para" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br/> 
+    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+</div>
+<style>
+    .slider{
+        height:400px;
+        width:100%;
+        display:none;
+    }
+    .top {
+        margin-top: 53px;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(3px);
+    }
+    .on-top {
+      
+        position: absolute;
+        top: 222px;
+        text-align: center;
+        font-family: fantasy;
+        color: white;
+        margin-left: 272px;
+    }
+    .top-p {
+        position: absolute;
+        top: 273px;
+        color: white;
+        font-size: 21px;
+        font-family: fantasy;
+        text-align: center;
+        margin-left: 405px;
+    }
+    .mySlides
+    {
+        display:none;
+        text-align:center;
+        font-family:fantasy;
+        font-size:14px;
+       
+    }
+    .head-testi {
+        text-align: center;
+        font-family: fantasy;
+        margin-top: 44px;
+    }
+    .Slide-testimonials{
+        margin-bottom:15px;
+    }
+    .c-back {
+        height: 550px;
+        width: 100%;
+        filter: blur(2px);
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .form {
+        border-radius: 5px;
+        background-color: rgb(72, 70, 70);
+        padding: 16px;
+        margin-left: 55%;
+        margin-right: 153px;
+        padding-left: 33px;
+        float: left;
+        position: absolute;
+        top: 132%;
+    }
+    .name-text
+    {
+        width:200px;
+    }
+    .msg {
+        float: left;
+        position: absolute;
+        top: 105%;
+    }
+    .msg1 {
+        text-align: center;
+        font-family: fantasy;
+        color: white;
+        padding-left: 42px;
+    }
+    .msg-para {
+        color: white;
+        font-family: fantasy;
+        font-size: 16px;
+        text-align: center;
+        padding-left: 41px;
+    }
+   
+
+</style>

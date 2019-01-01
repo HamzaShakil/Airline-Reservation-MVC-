@@ -1,0 +1,79 @@
+﻿@model Airline_Reservation.Models.Userlogin
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<hr />
+<h2>Welcome Admin</h2>
+<p>Please enter your UserName and password to continue..</p>
+ @if (TempData["notice"] != null)
+            {
+
+<h4 class="text-danger">@TempData["notice"]</h4>
+
+
+@*@Html.ValidationMessageFor(@TempData["notice"],new{@class="text-danger"})*@
+            }
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+       
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username)
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Username)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPassword)
+            <div class="editor-field">
+                @Html.ValidationMessageFor(model => model.UserPassword)
+                <input type="password" class="form-control" name="password" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RememberMe)
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.RememberMe)
+                @Html.ValidationMessageFor(model => model.RememberMe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="editor-field">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<style>
+    .form-horizontal {
+        margin-left: 40%;
+    }
+    p{
+        text-align:center;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 41px;
+    }
+    
+</style>
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
